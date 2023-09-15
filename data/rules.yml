@@ -1,0 +1,327 @@
+version: "3.0"
+
+rules:
+#- rule: greets when user greet
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+
+- rule: Register form
+  condition:
+  #condition that form is active
+  - active_loop: user_details_form
+  steps:
+  #Form is deactivated
+  - action: user_details_form
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  #action we want to run on submittion of form
+  - action: action_register_guest_user
+  - action: utter_acknowledge
+
+#- rule: says okay or something else when user says okay, yes etc.
+#  steps:
+#  - intent: affirm
+#  - action: utter_affirm
+
+#
+#- rule: deals with don't know, no , not agree etc..
+#  steps:
+#  - intent: deny
+#  - action: utter_deny
+
+
+- rule: about major function of pseb
+  steps:
+  - intent: pseb_function
+  - action: utter_pseb_function
+
+
+#- rule: registration at pseb as FRC, CC, CO
+#  steps:
+#  - intent: registration
+#  - action: utter_registration
+#
+#
+#- rule: about call center renwal charges
+#  steps:
+#  - intent: cc_renewal
+#  - action: utter_cc_renewal
+#
+#
+#- rule: inform is it necessary to register with pseb
+#  steps:
+#  - intent: compulsory_to_register
+#  - action: utter_compulsory_to_register
+#
+#
+#- rule: related benefit after registration with pseb
+#  steps:
+#  - intent: reg_reward
+#  - action: utter_reg_reward
+#
+#
+#- rule: about process of renewal for FRC, CC, CO
+#  steps:
+#  - intent: process_of_renewal
+#  - action: utter_process_of_renewal
+#
+#
+#- rule: how to register CC branch
+#  steps:
+#  - intent: cc_branch_reg
+#  - action: utter_cc_branch_reg
+#
+#
+#- rule: about send request for visit/renewal
+#  steps:
+#  - intent: request_tab
+#  - action: utter_request_tab
+#
+#
+#- rule: about correction in certificate
+#  steps:
+#  - intent: certificate_correction
+#  - action: utter_certificate_correction
+#
+#
+#- rule: deals with SBP code
+#  steps:
+#  - intent: sbp
+#  - action: utter_sbp
+#
+#
+#- rule: about procedure to change ownership
+#  steps:
+#  - intent: ownership_change
+#  - action: utter_ownership_change
+#
+#
+#- rule: about request for change of NTN
+#  steps:
+#  - intent: ntn_change
+#  - action: utter_ntn_change
+#
+#
+#- rule: inform about payment return process
+#  steps:
+#  - intent: payment_return
+#  - action: utter_payment_return
+#
+#
+#- rule: tells payment method at pseb
+#  steps:
+#  - intent: payment_option
+#  - action: utter_payment_option
+#
+#
+#- rule: inform time require after payment
+#  steps:
+#  - intent: time_after_payment
+#  - action: utter_time_after_payment
+#
+#
+#- rule: about post order or demand draft
+#  steps:
+#  - intent: po_dd_accept
+#  - action: utter_po_dd_accept
+#
+#
+#- rule: about cash deposit method
+#  steps:
+#  - intent: cash_deposit
+#  - action: utter_cash_deposit
+#
+#
+#- rule: about forget password
+#  steps:
+#  - intent: psw_change
+#  - action: utter_psw_change
+#
+#
+#- rule: to add new ip
+#  steps:
+#  - intent: add_IP
+#  - action: utter_add_IP
+#
+#
+#- rule: for cancel registration
+#  steps:
+#  - intent: cancel_reg
+#  - action: utter_cancel_reg
+#
+#
+#- rule: about multi year subscription
+#  steps:
+#  - intent: dual_year_reg
+#  - action: utter_dual_year_reg
+#
+#
+#- rule: delas with verification of visit tab
+#  steps:
+#  - intent: visit_verification
+#  - action: utter_visit_verification
+#
+#
+#- rule: about whitelising process at pseb.
+#  steps:
+#  - intent: whitlisting_process
+#  - action: utter_whitlisting_process
+#
+#
+#- rule: about require documents
+#  steps:
+#  - intent: doc_for_reg_renewal
+#  - action: utter_doc_for_reg_renewal
+#
+#
+#- rule: delas with website down scnerio
+#  steps:
+#  - intent: website_down
+#  - action: utter_website_down
+#
+#
+#- rule: deals with ipv6 issue
+#  steps:
+#  - intent: ipv6_issue
+#  - action: utter_ipv6_issue
+#
+#
+#- rule: about certification not received
+#  steps:
+#  - intent: cer_not_received
+#  - action: utter_cer_not_received
+#
+#
+#- rule: reason for application rejection
+#  steps:
+#  - intent: reg_rejected
+#  - action: utter_reg_rejected
+#
+#
+#- rule: tells about the fee structure
+#  steps:
+#  - intent: fee_structure
+#  - action: utter_fee_structure
+#
+#
+#- rule: about update profile, contact, logo
+#  steps:
+#  - intent: update_profile
+#  - action: utter_update_profile
+#
+#
+#- rule: related to update bank details
+#  steps:
+#  - intent: update_bank
+#  - action: utter_update_bank
+#
+#
+#- rule: about foreign services
+#  steps:
+#  - intent: foreign_services
+#  - action: utter_foreign_services
+#
+#
+#- rule: for visiting hours at pseb
+#  steps:
+#  - intent: visiting_hours
+#  - action: utter_visiting_hours
+#
+#
+#- rule: tells what is rform or prc
+#  steps:
+#  - intent: rform_prc
+#  - action: utter_rform_prc
+#
+#
+#- rule: for tax exemption from fbr
+#  steps:
+#  - intent: tax_cer
+#  - action: utter_tax_cer
+#
+#
+#- rule: about tax on IT export.
+#  steps:
+#  - intent: IT_tax
+#  - action: utter_IT_tax
+#
+#- rule: for payment recipient submission
+#  steps:
+#  - intent: recipient_submission
+#  - action: utter_recipient_submission
+#
+#
+#- rule: for certification delivery id
+#  steps:
+#  - intent: cer_delivery_id
+#  - action: utter_cer_delivery_id
+#
+#
+#- rule: about resubscription without revenue
+#  steps:
+#  - intent: reg_without_revenue
+#  - action: utter_reg_without_revenue
+#
+#
+#- rule: process for call center provisional extension
+#  steps:
+#  - intent: apply_for_cc_exten
+#  - action: utter_apply_for_cc_exten
+#
+#
+#- rule: about number of extensions for call center
+#  steps:
+#  - intent: num_of_cc_exten
+#  - action: utter_num_of_cc_exten
+#
+#
+#- rule: tells fee for call center extension
+#  steps:
+#  - intent: fee_for_cc_exten
+#  - action: utter_fee_for_cc_exten
+#
+#
+#- rule: tells when to start operation after certification
+#  steps:
+#  - intent: should_start_operation
+#  - action: utter_should_start_operation
+#
+#
+#- rule: about single email/ntn for multiple account
+#  steps:
+#  - intent: multi_reg_for_single
+#  - action: utter_multi_reg_for_single
+#
+#
+#- rule: for registration scep/firm account require?
+#  steps:
+#  - intent: need_secp_firm_reg
+#  - action: utter_need_secp_firm_reg
+#
+
+
+
+
+#- rule: Activate form
+#  steps:
+#  - intent: not_registered_user
+#  - action: utter_initial_information
+#  - action: user_details_form
+#  - active_loop: user_details_form
+
+#- rule: Submit form
+#  condition:
+#  #condition that form is active
+#  - active_loop: user_details_form
+#  steps:
+#  #Form is deactivated
+#  - action: user_details_form
+#  - active_loop: null
+#  - slot_was_set:
+#    - requested_slot: null
+#  #action we want to run on submittion of form
+#  - action: utter_slots_values
+#  - action: action_register_guest_user
+#  - action: utter_acknowledge

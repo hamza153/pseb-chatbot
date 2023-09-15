@@ -1,0 +1,2027 @@
+version: "3.0"
+nlu:
+#- intent: nlu_fallback
+#  examples: |
+#    - i am experiencing an issue with your service and want to log a ticket
+#    - i'm facing problems navigating your website
+#    - I want to lodge a support ticket
+- intent: person_name
+  examples: |
+    - my name is [Muhammad](person_name)
+    - my name is [Ali Baba](person_name)
+    - my name is [Zia Ur Rahman](person_name)
+    - my name is [Jonathan Locke](person_name)
+    - I am [Bilal Harrel](person_name)
+    - I am [Shibli Nomani](person_name)
+    - I am [Martha Halper](person_name)
+    - [John Macabee](person_name) is my full name
+    - [Alex Newtom](person_name) is my full name
+    - [Barbra Stewart](person_name) is my full name
+    - [Zishan Liaqat](person_name) is my name
+    - You can call me [Osama](person_name)
+    - [asad](person_name)
+    - I am [ahmar](person_name)
+    - [ali raza](person_name) is my full name.
+    - [ahmad](person_name) is my naeem
+    - my naem is [imran](person_name)
+    - [Muhammad Taha](person_name) is my ful name
+    - you can call me [ali Hamayon](person_name)
+    - write my name as [arslan ashraf](person_name)
+    - the name is [Muhammad imran](person_name)
+    - please call me [capt.asad](person_name)
+    - I'm [M Asad](person_name)
+    - It's [Noman Niaz](person_name)
+    - name is [Shahzaib](person_name)
+    - please call me [Mrs. Asad](person_name) here
+    - [Miss Hafsa](person_name)
+    - my name is [Shamim Ara](person_name)
+    - its [Ali Abbas](person_name)
+    - you can call me [prof.Arslan Tabrezi](person_name)
+    - please call me [Abd-ul-Rehman](person_name)
+    - the name is [khalil-ur-rehman](person_name)
+    - I am [Muhammad Awais Qarni](person_name)
+    - I want to be called [smith](person_name)
+    - you can call me [Mr. Rizwan](person_name)
+    - my name is [artemis](person_name)
+- intent: phone_number
+  examples: |
+    - my phone number is [03426295363](phone_number)
+    - I am [03316541256](phone_number)
+    - [00923425435680](phone_number) is my phone number
+    - [+923025474586](phone_number) is my contact number
+    - You can call me at [923115485693](phone_number)
+    - my personal number is [03165829325](phone_number)
+    - [913075815425](phone_number)
+    - [92-304-3456782](phone_number)
+    - [051-8788683](phone_number) is my contact number
+    - phone number is [051-8788683](phone_number)
+    - I use this number: [92 302 7820987](phone_number)
+    - I usually use this [92-304-3456782](phone_number)
+    - I am using [03165829325](phone_number)
+    - I am using this [051-8788683](phone_number)
+    - you can call me on [03165829325](phone_number)
+    - can contact me on this [051-8788683](phone_number)
+    - send info on [92-304-3456782](phone_number)
+    - number is I am having [03165829325](phone_number)
+    - [+923075815425](phone_number) is my number
+    - [051-8788683](phone_number) contact numbre
+    - phone numbre is [92 302 7820987](phone_number)
+    - its [923075815425](phone_number)
+    - [9342374234](phone_number)
+- intent: email
+  examples: |
+    - my email is [someuser34@live.com](email)
+    - my email is [this_test_user@domain.com.pk](email)
+    - my email is [some_some8234@domainname.cc](email)
+    - my email is [another2email@outlook.com](email)
+    - my email is [myname_yourname54@emaildomain.net](email)
+    - my email is [john_dee555@oneemailserver.co.uk](email)
+    - [someuser34@ovextech.com](email) is my mail
+    - [anotherverlongemailaddress@averylongdomainnameaswell.com](email) is my mail
+    - [someuser34@brilliantemailserverlong.co.uk](email) is my mail
+    - [your_na1me_one@atleast.net.uk](email) is my mail
+    - [whatanexample@onetwothree.com](email) is my mail
+    - [anothe343raemap_e@ovextech.com](email) is my mail
+    - [aaa@hotmail.com](email)
+    - [onetwothree3424@brissdiantefdhailsrmkjverng.com](email)
+    - [anexampletext342@letscreatenewworld.net](email)
+    - [aaa@freehostingtech.co.uk](email)
+    - [aaa@nluenginesarereallydumb.com.au](email)
+    - [last76_straw7579@icantbelieveimdoingthis.net.pk](email)
+    - [lestdosomethingbrilliant@thebigproviderateastcoast.cc](email)
+    - I use this email [sa-302@gmail.com](email)
+    - I use [arslan_@pkshop.com](email) email
+    - [hassan256@edu.pk](email) is my mailing address.
+    - my email is [ahmad456@daanishschools.edu.pk](email)
+    - [sa-302@edu.com](email) is my mailing address.
+    - you can send me at [raza543@hbl.com](email)
+    - please send me on [pakistan1947@comsats.edu](email)
+    - the eamil is [li.raza-3090@yahoo.com](email)
+    - email contact is [arslan_2345@net.pk](email)
+    - persoal email adress is [ahmad456@pchotels.com](email)
+    - emial is [ali.raza-3090@yahoo.com](email)
+    - its [ali.raza-3090@yahoo.com](email)
+    - [sa-302@free.fr](email) is my mailing address.
+    - you can mail me at [li.raza-3090@ymail.com](email)
+    - please send me on [pakistan1947@sky.com](email)
+    - contact me at [a.s.a.d.1.0.6.0.@aim.com](email)
+    - [taha435@sama.tv](email)
+    - its [ahmad_raza@mughalsteel.co](email)
+    - [ayesha__kahlid@bzu.info](email)
+    - test@domain.com
+- intent: trigger
+  examples: |
+    - trigger action
+    - want to trigger an action
+    - trigger an action for my self
+- intent: registered_user
+  examples: |
+    - I am register with pseb
+    - I have completed my registration
+    - my registration has been completed
+    - I have registration with pseb
+    - I already have registered
+    - I have an account
+    - I am not a guest user
+    - I have signup at pseb
+    - I have made my registration
+    - I've registered with pseb
+    - I've signed up with pseb
+    - I've joined pseb
+    - I already have joined pseb
+    - I am a pseb member
+    - I have an account registered with pseb
+    - I am registered at pseb
+    - yes I am registered
+    - yes I have account at pseb
+    - I'm registered user
+    - i'm registed
+    - am a registered user
+    - im am registered
+    - im registerd user
+    - registered
+    - registeredd
+- intent: not_registered_user
+  examples: |
+    - I am not a registered user
+    - No, I do not have a pseb account.
+    - I don't have a user account.
+    - I don't have registration with pseb
+    - no I have no account at pseb
+    - I don't have an account
+    - I am not register with pseb
+    - I am a guest user
+    - no I am guest user
+    - no I am here as guest user
+    - No, I am only a guest user.
+    - I have not registraion with pseb
+    - I am an unregistered user.
+    - I have not joined pseb
+    - No, I am a visitor.
+    - I have not made registration
+    - I have not signup at pseb
+    - I am unregistered user.
+    - this is my first time
+    - first time I am here
+    - no account
+    - not registered
+    - unregistered
+    - I'm not registered user
+    - i'm not registed
+    - i'm guest user
+    - I'm guest
+    - am a guest user
+- intent: generate_ticket
+  examples: |
+    - yes I would like to generate ticket
+    - yes generating a ticket would be great
+    - generate ticket for me
+    - you can generate a ticket
+    - yes please create a ticket
+    - sure give me a ticket number
+    - please generate ticket
+    - yes I need a ticket
+    - yes I want ticket number
+    - yes I will like to get ticket for support
+    - for assistance I need a ticket
+    - yes I need a token number
+    - I require ticket number
+    - give me a token
+    - give me a ticket number
+    - will be great to get ticket
+    - I need this
+    - yes I will prefer to get a ticket
+    - much needed of a token
+- intent: not_generate_ticket
+  examples: |
+    - don't need this
+    - no need to generate ticket
+    - you don't have need to generate a ticket
+    - no please do not create a ticket
+    - not at all
+    - no need for ticket
+    - no need of it
+    - I don't want a ticket
+    - no I will not like to get ticket for support
+    - I do not need a ticket
+    - no need for a token number
+    - don’t create a token
+    - don't generate a token
+    - I do not require ticket number
+    - don't give me a token
+    - do not give me a ticket number
+- intent: email_to_support
+  examples: |
+    - yes you can email to support team
+    - sure you can email to your customer support
+    - yes sending an email would be great
+    - yes please I want to send an email to support staff
+    - I will like to send an email
+    - yes I need you to send an email
+    - Yes, send email to help desk
+    - I would like to send an email to the customer service staff
+    - yes I will prefer to send email
+    - much needed to send an email
+    - yes I want you to send an email
+    - Yes send an email to customer support team
+    - yes I would like you to email
+    - you can send an email
+    - please send email on my behalf
+- intent: not_support_email
+  examples: |
+    - don't need to send an email
+    - no need to send an email
+    - you don't have need to send email
+    - no please do not send an email
+    - I would not like to send email
+    - I don't want to send email
+    - no I will not like to send an email
+    - I do not need to email
+    - no need for a email
+    - don't send email
+    - I do not want to send email
+    - don't submit email for me
+    - do not forward an email
+    - no don't email to your support team
+    - no please I don't want to send an email to support staff
+    - There is no need to send an email.
+    - You are not required to send an email.
+    - I'm not interested to send an email.
+- intent: why_you_need_this
+  examples: |
+    - why are you asking these things
+    - why do you want this
+    - why do you need it
+    - why should I tell you
+    - tell me why you need this
+    - tell me why you want it
+    - do you really need this
+    - why you asked this
+    - how can you ask this
+    - Why did you ask that
+    - let me know why you want this
+    - can you tell me why yu asked it
+    - can you tell me why you need this
+    - can I ask why you need it
+    - would you tell me why should I tell you this
+    - I want to know why you require this
+    - I wana know why you reqiur this
+    - please tell me why you want this
+    - plz tel me why do u ned this
+    - please tell me why you need this
+    - need to know why are you asking this
+    - need know y r u ask
+    - I want to ask why you need my name
+    - I want to know why you asked my email
+    - why did you ask contact number
+    - let me know what will you do with my phone number
+    - can you plz tell me why are you asking about my address
+    - what is your concern with my location
+    - I have concern about this
+    - I have concren about my email.
+    - I am bit concern about my information
+    - I have conecrn related to my info
+- intent: live_agent
+  examples: |
+    - I want to talk live agent
+    - shift me to the live agent
+    - I'd want to speak with someone from the support staff
+    - Is it possible for me to talk with the agent?
+    - connect me to the human
+    - can I talk to the agent
+    - I want to talk someone else
+    - I'd like to chat with a human
+    - I want to talk with support team
+    - may I connect with agent
+    - I will prefer to talk with human
+    - I don't want to talk with you call someone else
+    - call an agent for me
+    - I'd like to speak with a live agent
+    - please transfer me to the live agent
+    - allow me to speak with the agent
+    - I'd want to speak with a person.
+    - link me with a person
+    - Can I speak with the agent?
+    - connect with agent
+    - I would like to talk with human
+    - call the agent
+    - Please connect me with an agent
+    - let me talk to the agent
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: require_assistance
+  examples: |
+    - Is anyone there
+    - Is someone there
+    - is anybody there
+    - are you there
+    - can i converse with someone
+    - I want converse
+    - can I get your assistance
+    - can I ask for assistance
+    - kindly assist me
+    - would you mind helping me
+    - would you help me
+    - wuld you help me
+    - will you mind helping me
+    - can I talk
+#- intent: bot_name
+#  examples: |
+#    - are you a bot?
+#    - are you a human?
+#    - am I talking to a bot?
+#    - am I talking to a human?
+#    - who are you?
+#    - what Is your name?
+#    - are you human?
+#    - you are boat
+#    - who you
+#    - your name
+#    - you are not human
+#    - your are human
+#    - you are bot
+#    - you bot
+#    - you are boot
+#    - you are not huamin
+#    - you not human
+#    - tell me your name
+#    - tel me your naem
+#    - please let me know your neam
+#    - kindly tel me your name
+- intent: type_of_question_delt
+  examples: |
+    - can you reply PSEB related question
+    - would you mind if I ask about PSEB
+    - would you tell me PSEB question
+    - please answer PSEB related query
+    - what can I ask you
+    - what kind of information do you know
+    - what information do you have
+    - can you answer all types of questions
+    - can you reply all type of question
+    - what type of questions may i ask you
+    - what you can tell me
+    - woud you mind if I ask about PSEB
+    - will you tell me what you can tell me
+    - will you answer PSEB related ques
+    - can you assist me PSEB related ques
+    - can I get to know about PSEB
+    - what may I ask you
+    - what I should ask
+    - what you now
+    - how much yuo know
+    - you can reply
+    - can you ans PSEB ques
+    - ans about PSEB quest
+    - ans PSEB related ques
+    - can yo tell me about PSEB
+    - inorma u have
+    - inform u keep
+    - can I ask about PSEB
+    - what question you can reply
+    - waht queston yu can ans
+    - wil you tel me what you can ans
+- intent: laugh
+  examples: |
+    - lol
+    - lolz
+    - lolx
+    - lolzzzZxz
+    - lolll
+    - lolzzzzzzzzzzzzzzzz
+    - hahhaha
+    - haha
+    - hahahahhahahhahahah
+    - hahahhahahhhahahhh
+    - hhhhhhhhhhhhhhhh ahhahah ahhahah
+    - haahahha ahhahah
+    - hiihihihihihih
+    - hehehehehehehehhehehe
+    - hwhhwhhhohohohoh
+    - laugh
+    - laughing out loud
+    - lauging out loud
+    - laugh out lod
+    - xd XD
+    - ahhahahahhahah XD
+    - lmfao
+    - funny
+- intent: appricate
+  examples: |
+    - thanks for helping me
+    - Thanks, that’s very helpful
+    - Awesome, thanks
+    - nice
+    - amazing
+    - that’s great
+    - thnk
+    - gert
+    - thnk for help
+    - I would like to thanks you
+    - I appreciate your response
+    - I appreciate you
+    - I admire your respnonse
+    - I admire you
+    - appreciation goes to you
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - that sounds good
+    - correct
+    - yes, that's OK
+    - yes, that happens to be ok
+    - that would be correct
+    - thats right
+    - that is totally true
+    - oh yes
+    - that seems right
+    - all right
+    - that's a yes from me
+    - that's a yes
+    - of course
+    - confirm
+    - exactly right
+    - I agree with you
+    - sure you  can
+    - got it
+    - carry on
+    - go ahead
+    - yeah I would like to
+    - yeah
+    - sure
+    - why not
+    - right
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - don't
+    - that's a no from me
+    - do not please
+    - not right
+    - nope
+    - not at all
+    - absolutely not
+    - NO
+
+- intent: acknowledge
+  examples: |
+    - that's definitely true
+    - yes, that is true for sure
+    - true, most definitely
+    - that makes sense as well
+    - you are not wrong about that
+    - you are correct
+    - i know that is true
+    - obviously right
+    - TRUE
+    - definitely True
+    - defintly ture
+    - ture
+- intent: end_chat
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: reg_key
+  examples: |
+    - my registration key is [FR/PSEB/2021/1](user_id)
+    - [C21/PSEB/2021/071](user_id) is my registration key
+    - use [FR/PSEB/2021/17](user_id) as key
+    - you can use [FR/PSEB/2021/17](user_id)
+    - my reg key is [FR/PSEB/2021/17](user_id)
+    - my login key is [Z-27-07381-96](user_id)
+    - [C22/PSEB/2022/032](user_id) is my login key
+    - [FR/PSEB/2021/17](user_id) is my registration id
+    - my signup key is [C05/PSEB/2005/001](user_id)
+    - its [Z-25-0001/96](user_id)
+    - my freelancer reg key is [FR/PSEB/2022/47](user_id)
+    - [FR/PSEB/2023/77](user_id) is my freelancer registration key
+    - sign up key for freelancer is [FR/PSEB/2021/107](user_id)
+    - [FL22/PSEB/2022/08](user_id)
+    - [FL21/PSEB/2021/18](user_id) id
+    - my call center reg key is [C22/PSEB/2022/032](user_id)
+    - [C22/PSEB/2022/032](user_id) is my call center registration key
+    - sign up key for call center is [C22/PSEB/2022/032](user_id)
+    - [C05/PSEB/2005/001](user_id)
+    - its [C18/PSEB/2018/091](user_id)
+    - my call company reg key is [Z-25-0001/96](user_id)
+    - [Z-25-0001/96](user_id) is my company registration key
+    - sign up key for company is [Z-25-0001/96](user_id)
+    - company id [Z-25-0001/42](user_id)
+    - [Z-15-0009/96](user_id) for company
+    - [C12/PSEB/2012/041](user_id) call center
+    - [FL21/PSEB/2021/91](user_id) freelancer
+    - [FL20/PSEB/2020/111](user_id) frelancer
+    - [Z-18-0014/09](user_id) company
+    - [FR/PSEB/2021/17](user_id)
+- intent: pseb_function
+  examples: |
+    - What is the major function of PSEB?
+    - what are the major function of PSEB
+    - what functions PSEB performs.
+    - what are the services of PSEB
+    - what is the major task of Pakistan Software Export Board
+    - what is the purpose of pseb
+    - what is the use of pseb
+    - pakistan software exchange board is for?
+    - what is the responsibility of PSEB
+    - can you tell me the role of PSEB
+    - can I ask function of PSEB
+    - would you tell me PSEB function
+    - would you mind If I ask PSEB aim
+    - I want to know PSEB work
+    - please tell me PSEB purpose
+    - I would like to know work of PSEB
+    - let me know functions that PSEB performs
+    - kindly let me know duty that PSEB do
+    - need to know pseb major responsibility
+    - can I get to know Pseb purpose
+    - want to know pseb functions
+    - wanna know about functions of pseb
+    - provide information regarding pseb functions
+    - what does pseb do
+    - may I get to know purpose of pseb
+    - I want to ask regarding pseb function
+    - what does PSEB does
+    - pseb performs what kind of function
+    - what services are performed by Pseb
+    - let me know pseb major function
+    - let me know what pseb does
+    - tell me pseb is used for what
+    - let me know pseb responsibility
+    - what are important function of pseb
+    - let me know pseb main function
+    - what are maojr functon of psb
+    - what is the purpos of psbe
+    - let me know pseb servics
+    - I want to know srvice of pseb
+
+- intent: registration
+  examples: |
+    - How to register on PSEB for call center?
+    - do you know how to register at PSEB
+    - I want to register at (pseb)
+    - can I get register at P.S.E.B
+    - how to register at PSEB
+    - can you tell me registration process
+    - can I ask about registration
+    - will you tell me regarding registration
+    - do you know related to registration
+    - what is the registration process
+    - please tell me about registration process
+    - how can I get enter at PSEB
+    - I would like to know about process of registration
+    - kindly let me know related to signup process
+    - need to know how to register
+    - can I get to know registration process
+    - How to apply online for registration?
+    - How to register on P.S.E.B?
+    - how can I register
+    - how can I signup
+    - how to do registration
+    - how can I make registration
+    - can you tell me how can I register at PSEB
+    - how can I enroll on PSEB
+    - can I ask process of registration
+    - How to apply online for call center registration?
+    - how can I register for call center
+    - how can I signup for call center
+    - how to do registration as call center
+    - how can I make registration for contact center
+    - can you tell me how can I register my call center at PSEB
+    - how can I enroll call center on PSEB
+    - I want to register my call center at (PSEB)
+    - can I ask process of registration for call center
+    - want to know registration guidelines
+    - provide information for registration
+    - provide Information for call center registration
+    - Is it possible to register at PSEB?
+    - how to enroll at pakistan software exchange board
+    - how to get enrollment at pseb
+    - let me know process to enroll at pseb
+    - please tell me pseb process to get enroll
+    - (pseb) enrollment
+    - how to make account on pseb
+    - how to get portal on pseb
+    - I want to signup at pseb
+    - how to regsiter on pseb
+    - let me know proces for registation
+    - how to sing up at psbe
+    - Can I get registerd as freelancer?
+    - how to get register as freelancer?
+    - can you tell me how can I register at PSEB as freelancer
+    - how can I enroll on Pakistan Software Exchange Board for freelancer
+    - How to apply online for freelancer registration?
+    - how can I register for freelancer
+    - how can I signup as freelancer
+    - how to do registration for freelancer
+    - how can I make registration as freelancer
+    - can you tell me how can I register as freelancer
+    - how can I enroll as freelancer
+    - I want to register as freelancer
+    - can I ask process of registration for freelancer
+    - tell me how a freelancer can register
+    - would you tell me process of freelancer registration
+    - tell me how a self employed can register at P.S.E.B
+    - I would like to register as self employed
+    - kindly register me as freelancer
+    - need to know process of registration for freelancer
+    - how a freelancer can register at PSEB
+    - can I get register software house at (PSEB)
+    - how a software house can register at PSEB
+    - need to know process for registration as software house
+    - may a software company can get register at p.s.e.b
+    - tell me how a software company can signup
+    - how a software company can register with pseb
+    - please make registration for software house
+    - need to register as software company
+    - how to regsiter as frelancer
+    - how to signup as frelacner
+    - how to regstier as freelanc
+    - how sotfware houes can regsiter
+    - how frelanecer can registered
+    - tell me regstiertion for sofwtare hous
+    - Procedure to get new registration for company
+    - let me know procedure for new registration
+    - kindly tell me steps to create new account
+    - let me know the steps to signup
+    - tell me steps for freelancer registration
+    - can you tell me procedure for registration as call center
+    - can you tell me method for new registration
+    - can I ask about steps involve in registration
+    - would you tell me about steps in new registration
+    - I want to know phases in new registration
+    - what is the process for new signup
+    - need to know new registration process
+    - please tell me registration procedure
+    - I would like to know about registration process
+    - may I know about new signup process
+    - tell me steps involve in new registration
+    - Procedure to get new registration for call center
+    - Procedure to get new registration for freelancer
+    - tell me process of registration
+    - provide information about registration process
+    - I want to know process of new registration
+    - let me know new registration process
+    - what is the process for new registration
+    - I want to make new account
+    - let me know the procedure for new acccount
+    - I want to know proces for new registrtion
+- intent: cc_renewal
+  examples: |
+    - What are the call center renewal charges?
+    - what is the charges for call center registration continuation
+    - please tell me charges for call center renewal
+    - can I get to know about charges of call center renew
+    - can you tell me renewal charges for call center
+    - let me know resubscribe charges for call center
+    - kindly tell me charges for call center resubscription
+    - can I ask about renewal charges for call center
+    - would you tell me annual renewal charges for call center
+    - would you mind if I ask about annual subscription charges for call center
+    - I want to know annual resubscription charges for contact center
+    - I would like to know call center resubscription charges per year.
+    - kindly let me know charges for resubscription per year.
+    - what are the charges for call center subcription annualy.
+    - how much I have to pay for call center subscription per year.
+    - need to know  per year subscription fee for call center
+    - charges for call center annualy
+    - what are the charges for call center branch.
+    - what are renewal charges for call center branch.
+    - charges being charged at pseb to renew call center
+    - money I have to pay for renew call center
+    - how much pseb charge for call center renewal
+    - pseb charges for call center renewal
+    - pseb fee for renewal of call center
+    - renewal charges for call center
+    - annual subscription charges against call center
+    - let me know subscription charges for call center branch
+    - tell me fee for renwal of call center branch
+    - call center branch renewal charges
+    - for call center branch what are the charges per year
+    - call center branch resubscription charges
+    - charges being charged at pseb to renew call center branch
+    - amount to pay for call center branch renewal
+    - how much charges will be charges for branch of call center renewal
+    - how much fee for renewal of call center branch
+    - What are the call center renewel chargse
+    - tell me fee for renwal of cal centr barnch
+    - tell me charges for call cnter per yaer
+    - tell me subscrption fee of call center
+- intent: compulsory_to_register
+  examples: |
+    - Is it necessary to registered with PSEB as company
+    - is it compulsory to register at P.S.E.B
+    - tell me either is it necessary to register or not
+    - either it is mandatory to signup or not
+    - let me know it is required to register at PSEB
+    - registration at pseb is essential or not
+    - do every company has to register at pseb
+    - can you tell me is freelancer registration compulsory
+    - can I ask about self employed signup is necessary to register with pseb
+    - would you tell registration for call center is necessary or optional
+    - I want to know registration at pseb is optional or not
+    - will you tell me for call center is it mandatory to register with pseb
+    - please tell me as freelancer registration is optional
+    - I would like to know is it essential to register with pseb
+    - kindly tell me it is not important to register with pseb
+    - need to know is it illegal to not register at Pseb
+    - let me know how important is it to register at pakistan software exchange board
+    - can I get to know is it legal if I am not register at pseb
+    - am I doing illegal if I am not register with pseb
+    - Is it necessary to registered with PSEB as call center?
+    - Is it necessary to registered with PSEB as freelancer?
+    - is freelancing illegal without registration with pseb
+    - is call center illegal without registration at pseb
+    - want to know doing online work without registration is legal or illegal
+    - provide information operating a call center without registration is legal
+    - provide information working as freelancer is without registration is illegal
+    - is it illegal to work without registration
+    - is it essential to register with pseb
+    - is it optional to register with p.s.e.b
+    - can I work without pseb registration
+    - does pseb allow to operate without registration
+    - pseb registration is compulsory
+    - pseb registration is not so much importan
+    - is it necsary to registre with pseb
+    - can I work with out registration
+    - pseb regestration is campolsory
+- intent: reg_reward
+  examples: |
+    - Benefits to get register with PSEB
+    - what are the advantage to register at pseb
+    - tell me reward after registration at pseb
+    - what are the benefit after registering at PSEB
+    - can you tell me registration benefit at pseb
+    - please tell me signup bonus with pseb
+    - can I ask what profit I will get after registration
+    - what are the uses of registration
+    - what will I get after registration
+    - can you tell me benefits of registration
+    - can I ask advantage to get register
+    - would you tell me benift after signup
+    - would you mind if I ask registration benefit
+    - I would like to know benefits of registration
+    - kindly let me know benefits against registration
+    - need to know advantages against registration
+    - let me know reward of registration
+    - may I know registration reward
+    - provide information regarding registration reward
+    - want to know benefits of registration at pseb
+    - what benefit will I get after registration
+    - please tell me signup reward
+    - pseb advantge after registering
+    - what are benefits of registration at pseb
+    - what kind of advantage I will get after registration
+    - would you mind telling me signup advantag
+    - would you like to tell me registration benefit
+    - I want to know reward after signup
+    - information about beneft after registration
+    - please tell benefits after registration
+    - what are benefits after registration
+    - I want to ask benifts of registration
+    - advantges of registration
+    - tell me benfit after signup
+    - what is signup advantge
+- intent: process_of_renewal
+  examples: |
+    - Procedure of renewal for company
+    - let me know procedure for renewal
+    - kindly tell me steps to renewal
+    - let me know the steps to renewal
+    - tell me steps for freelancer resubscription
+    - can you tell me procedure for resubscription as call center
+    - can you tell me method for continuation as freelancer
+    - can I ask about steps involve in renewal
+    - would you tell me about steps in renewal for company
+    - I want to know phases in renewal
+    - what is the process for resubscription
+    - need to know about renewal process
+    - please tell me renewal procedure
+    - I would like to know about renewal process
+    - may I know about renewal process
+    - tell me steps involve in resubscription for freelancer
+    - Procedure of renewal for call center
+    - Procedure of renewal for freelancer
+    - how can I renewal for freelancer
+    - how to renew
+    - process for renew
+    - process for resubscription
+    - tell me renew process
+    - let me know renewal process
+    - I want to resubscribe as call center
+    - I want to resubscribe as freelancer
+    - I want to resubscribe as software house
+    - let me renewal for software house
+    - I would like to renew as freelancer
+    - would you mind telling me renewal procedure
+    - I want to renewel for software company
+    - let me renwal for software house
+    - wanna resubscrbe as frelancre
+    - how can I rnewal for frelanser
+- intent: cc_branch_reg
+  examples: |
+    - Procedure of branch registration
+    - let me know procedure for call center branch registration
+    - kindly tell me steps for branch registration of call center
+    - let me know the steps to signup for branch registration
+    - can you tell me procedure for new registration as branch of call center
+    - would you tell me about steps in registration of call center branch
+    - I want to know phases in call center branch registration
+    - what is the process to register for call center branch
+    - need to know new registration process for branch of call center
+    - please tell me registration procedure for sub branch of call center
+    - I would like to know about registration process for call center branch
+    - may I know about registration process for branch
+    - tell me steps involve in branch registration
+    - how can I register a branch
+    - how can I make registration for call center branch
+    - how can I register my branch of call center at pseb
+    - provide information about process of branch registration
+    - want to know branch registration process
+    - how to register call center branch
+    - registration process for call center branch
+    - what is the process for call center branch registration
+    - what is the proecdrue for cal cnter branch registratoin
+    - how to reigster branch of cal centre
+    - what is the proses to regisetr for calll cneter brunch
+- intent: request_tab
+  examples: |
+    - Visit tab not shown
+    - visit tab not shown on portal
+    - how to active visit tab option
+    - how to activate visit tab
+    - how to request for visit tab
+    - what to do I can't see visit tab
+    - my visit tab Is not on portal
+    - I can't find visit tab
+    - process for visit tab activation
+    - activation process for visit tab
+    - visit tab is missing on portal
+    - how can I find hidden visit tab
+    - please active my visit tab feature
+    - feature of visit in tab is not showing on portal
+    - tab of visit option is not shown on account
+    - tab of visit does not appear on my account
+    - visit tab option is not present in my account
+    - visit tab can not be seen
+    - where is visit tab
+    - visit tab is not present on portal
+    - how would I be able to find hidden tab of visit
+    - where to find visit tab
+    - let me know the path of visit tab
+    - I am not able to see visit tab
+    - help me visit tab is not shown on portal
+    - email to send visit tab request
+    - let me know email address for request of visit tab
+    - on which eamil I have to request for visit tab
+    - how to activate tab of visit
+    - my visit tab Is not active
+    - how to active vsit tba
+    - where to found visite bat
+    - how can I find hiden visit tab
+    - Renewal tab not shown on portal
+    - how to active renewal option
+    - how to activate renewal tab
+    - how to request for renewal tab
+    - what to do I can't see renewal tab
+    - my renewal tab Is not on portal
+    - I can't find renewal tab
+    - process for renewal tab activation
+    - activation process for renewal tab
+    - renewal tab is missing on portal
+    - how can I find hidden renewal tab
+    - please active my renewal feature
+    - feature of renewal is not showing on portal
+    - renewal option is not shown on account
+    - renewal tab does not appear on my account
+    - renewal tab option is not present in my account
+    - renewal tab cannot be seen
+    - how would I be able to find hidden tab of renew
+    - where is renewal tab
+    - renewal tab is not present on portal
+    - how would I be able to find hidden tab of renewal
+    - where to find renewal tab
+    - let me know the path of renewal tab
+    - I am not able to see renewal tab
+    - help me renewal tab is not shown on portal
+    - email to send renewal tab request
+    - let me know email address for request of renewal tab
+    - on which eamil I have to request for renewal tab
+    - how to activate tab of renewal
+    - my renewal tab Is not active
+    - how to active renewl tba
+    - where to found renewale bat
+    - how can I fin hiden renewal tab
+- intent: certificate_correction
+  examples: |
+    - What is the procedure of correction in certificate, if required
+    - What is the procedure of ammendment in certificate, if required
+    - can you tell me how can I make change in documents
+    - how can I update my documents
+    - how can I update documents at pseb
+    - can you tell about updation in certification
+    - would you mind If I ask about documents updation
+    - I want to know about certificaiton updation
+    - will you tell me about ammendment in documents
+    - I would like to know about documents ammendment
+    - kindly let me know about certification updation
+    - need to know about certificaiton correction
+    - may I make change in certificate
+    - how to make correction in certificate
+    - how to update certificate
+    - plese tell me process of documents update
+    - want to know documents update process
+    - I want to update documents
+    - I want to do certificate correction
+    - how to get certificates corrected
+    - I found mistake on issed certificate
+    - name not written correctly on certificate
+    - how can I change certificate if there's some missing words
+    - how can I change certificate if there's some missing mistakes
+    - procedure to follow if found mistakes on certificate
+    - I want to make  changes in certificate
+    - I want to make correction in certification
+    - need to chang in crtificate
+    - how to upadte certificte
+    - I want to do certifcate corection
+- intent: sbp
+  examples: |
+    - What is the right SBP code to use for receiving of export remittances
+    - right sbp code for receiving export remittances
+    - what is the correct code of sbp for receiving export remittances
+    - for export remittance what is sbp code
+    - sbp code for receiving IT remittance
+    - correct code of sbp to recive remittance related to IT
+    - I want to know sbp code for it remittances
+    - let me know code for receiving IT remittance
+    - information for sbp code related to IT remittance
+    - would you tell me IT remittance sbp code
+    - would you like to tell me code of it remittance
+- intent: ownership_change
+  examples: |
+    - What is the procedure if any changes in owner?
+    - how to change ownership
+    - how can I change name of owner
+    - procedure to change owner name
+    - want to know process of changing owner name
+    - let me know how to edit owner name
+    - kindly tell me process for updation owner name
+    - I want to know owner updation process at pseb
+    - pseb process for change of owner
+    - pseb process owner name change
+    - can you tell me steps to change owner name at pseb
+    - can I ask about owner name change
+    - would you guide me to change owner
+    - please tell me how to change name of owner
+    - I would like to change ownership
+    - need to change holder name at pseb
+    - may I change name of holder
+    - how to update holder name
+    - how to update owner name
+    - want to update name of owner
+    - I want to chang ownr naem
+    - let me do ownr naem change
+    - wanna updat neam of ownre
+- intent: ntn_change
+  examples: |
+    - How to change NTN number?
+    - how can I update ntn number
+    - let me know process to change ntn
+    - can I change my ntn
+    - I want to change number of ntn
+    - I want to make change in ntn
+    - may I update ntn
+    - how to update ntn
+    - can I change number of ntn
+    - can I request to update NTN
+    - want to update ntn
+    - I want NTN update
+    - please tell me process for updation of ntn
+    - let me know procedure for ntn updation
+    - please tell me how to change national tax number
+    - I would like to change ntn
+    - need to change national tax number at pseb
+    - may I change ntn
+    - how to update national tax number
+    - want to update National Tax Number
+    - may I chang NTN
+    - I want NTN change
+    - can I updat NTN
+- intent: payment_return
+  examples: |
+    - What is the payment return procedure?
+    - do you support paymet return
+    - do you support payment return policy
+    - how can I get payment return
+    - let me know return policy about payment
+    - can you tell me steps for payment return
+    - I want to know how can I get my money back
+    - I would like to get return money
+    - please tell me how to get payment back
+    - I want my money back
+    - how to apply for fee refund
+    - process for payment return
+    - want to know payment retrun procedure
+    - procedure of payment return
+    - tell me procedure for payment return
+    - information regarding payment return
+    - I want payment reverse
+    - please reverse my payment
+    - can I know about policy on payment return
+    - may I know payment return policy
+    - please return my payment
+    - I want my payment back
+    - please return my amount
+    - return payment
+    - how can I get paymnt rutern
+    - return my paymnet
+- intent: payment_option
+  examples: |
+    - What is the payment submission procedure?
+    - can you tell me about payment submission process
+    - how can I make registration fee payment to pseb
+    - what are the process for fees submission
+    - what is the method to pay fees
+    - can you tell about fee voucher payment
+    - need to know about payment method
+    - need to know about transaction method
+    - let me know about method of payment
+    - please tell me method of fees submission
+    - how to submit payment
+    - how can I pay fee
+    - how to pay charges
+    - would you tell me about charges payment method
+    - I would like to know payment method for charges
+    - may I know payment option at pseb
+    - may I get to know options for payment
+    - tell me registration fee option
+    - want to know option for payment
+    - information about payment method
+    - information about method of payment
+    - method of payment
+    - payment method
+    - how to pay
+    - please tell about paymnt mehtod
+    - I want to know registration fee paymnet methad
+    - how can I pay registration fee
+- intent: time_after_payment
+  examples: |
+    - How long it takes to process after submission of payment
+    - how much time will it take to process after fees submission
+    - how much time I have to wait after submission of payment
+    - tell me how long will it take to process after submission of payment
+    - tell me how many hours will it take more after payment submission
+    - time after payment to process
+    - tell me time after payment process
+    - how many days will it take after payment submission
+    - how much duration will it take after submission of payment
+    - how much duration will be require after payment submission
+    - please tell me how should I wait after payment
+    - how much time is require after payment
+    - duration after payment transaction
+    - can you tell me how long process will take after payment
+    - how much I have to pay I already made payment
+    - I already have made payment how much I have to wait
+    - time after process of payment
+    - how much time in process after payment
+    - duration to process after payment submission
+    - I have paid how much time will it take to process
+    - time in process after payment
+    - time after payment has been made
+    - tiem aftre payment
+    - time wil taek after payment transation
+    - How long it takes to issue certificate?
+    - How much time will it take to issue certificate?
+    - how much time will it take to create certificate
+    - how much time I have to wait for certification
+    - tell me in how many days I will get certificate
+    - tell me how many hours will it take for providing certification
+    - time require for issue certification
+    - tell me time for certification
+    - how many days will it take for issue certificate
+    - how much duration will it take for certification
+    - how much duration will be require to generate a certificate
+    - please tell me how should I wait for to create a certfication at pseb
+    - wanna know duration of issue certificate
+    - provide information issue certificate
+    - let me know issue certificate duration
+    - duration for issue certificate
+    - time need for issuance of certification
+    - time will take to issue certificate
+    - in how many days certificate will issue
+    - time will take for certificate after fee submission
+    - how much time to generate certificate
+    - process will take time to generate certificate
+    - time require for certificate generation
+    - certificate generation process will take time
+- intent: po_dd_accept
+  examples: |
+    - Is Po acceptable?
+    - Is dd acceptable?
+    - can I pay through post order
+    - can I pay through demand draft
+    - do you accept post order
+    - do you accept demand draft
+    - can I send you payment with post order
+    - can I send you payment with demand draft
+    - let me know post order for payment will be right
+    - can you tell demand draft option is available
+    - can I make transaction through demand draft
+    - can I pay with post order
+    - information about PO
+    - want to know about DD
+    - I want to know post order is accepted or not
+    - either do you accept demand draft or not
+    - post order will be accepted or not
+    - demand draft will be accepted
+    - can I pay through po
+    - can I make payment through post order
+    - can I make payment through demand draft
+    - I want to make payment with post order
+    - I want to send payment with demand draft
+    - post order or demand draft is acceptable
+    - can I made payment with po or dd
+    - can I pay with psot ordre
+    - demnade drfat is acceptable
+- intent: cash_deposit
+  examples: |
+    - Is cash deposit acceptable?
+    - do you accept cash deposit
+    - can I pay cash through deposit in your account
+    - can I deposit cash directly
+    - do you accept direct cash deposit in account
+    - do you accept deposit in account
+    - can I send you payment in cash deposit
+    - can I send you payment with deposit
+    - let me know deposit method will be right
+    - can you tell cash deposit method is available
+    - can I make transaction through cash deposit
+    - can I pay through direct deposit in account
+    - information about cash deposit method in account
+    - want to know about deposit of cash in account
+    - I want to know cash deposit is accepted or not
+    - either do you accept direct deposit or not
+    - can I make payment through account
+    - I want to make payment as cash deposit
+    - can I deposit cash in account
+    - deposit cash is acceptable
+    - account number for cash deposit
+    - can I use cach daposit method
+    - chash deposet is accepted
+- intent: psw_change
+  examples: |
+    - How to change pw
+    - how can I reset password
+    - how can I set a new password
+    - I want to change code
+    - information about change password
+    - can you tell me how to change password
+    - would you tell me process to change password
+    - please tell me how can I reset my password
+    - need to know how to update my password
+    - I want to change pin code
+    - may I change pin
+    - can I ask to edit password
+    - need to change password
+    - information regarding passowrd change
+    - I do not remember password
+    - I don't have password
+    - password is not remember
+    - password has forgotten to me
+    - code is not remember
+    - pin has forgotten
+    - Password is not working, what to do?
+    - code is not working
+    - what can I do my pin is not working
+    - let me know what to do I forget password
+    - I have forgotten my password what to do
+    - I don't remember password
+- intent: add_IP
+  examples: |
+    - How to add new IP
+    - how to update IP
+    - can you tell me process of IP updation
+    - would you tell me steps to update ip
+    - I want to change IP address
+    - I would like to edit Ip
+    - need to change IP
+    - information about change ip
+    - information regarding ip update
+    - may I change ip
+    - let me know the process for update ip
+    - tell me how to update ip
+    - how to add ip
+    - how to get ip
+    - how to register new ip
+    - Could you please explain the procedure of updating my IP address?
+- intent: cancel_reg
+  examples: |
+    - How to cancel the registration with PSEB
+    - can you tell me how to postpone registration with pseb
+    - would you tell me how to remove registration
+    - I want to to cancel registration
+    - please tell me how to postpone registration
+    - let me know the process of registration cancel
+    - can I withdraw my registration
+    - may I end my subscription
+    - I want to end my registration
+    - let me close registration process
+    - please close the registration process for me
+    - I want to close process of registration
+    - I need to close registration process
+    - there is no need to process registration
+    - I don't want to process on registration
+    - I want to close signup process
+    - I am not interested in registration
+    - let me finish my registration process
+    - need to finish procedure of registration
+    - registration process cancel
+    - registration procedure cancel
+    - let me colse my regstratoin
+    - would you tell me to revoke registion process
+    - I want to remove affiliation
+    - I want to remove registration
+- intent: dual_year_reg
+  examples: |
+    - How to get co certificate for multiple years?
+    - how to get company registration for multiple year
+    - can I get mulitple year registration for company
+    - let me know process for multi year subscription for company
+    - can I register company for multiple year
+    - how to get co subscription for more then one year
+    - can I get co registration for two years
+    - may I register as company for more then one year
+    - I would like to register company for dual year
+    - can you register company for couple of years
+    - need to get copmany subscription for three years
+    - subscription of company for multiple years
+    - I want to register company for four years
+    - do you issue company registration for less then one year
+    - multi year subscription of company
+    - company registration for multi year
+    - company certificate for more then one year
+    - multi yaer subscription for company
+    - How to get cc certificate for multiple years?
+    - can I get call center registration for more then one year
+    - How to get call center certificate for multiple years
+    - how to get call center registration for multiple year
+    - can I get mulitple year registration for call center
+    - let me know process for multi year subscription for call center
+    - can I register call center for multiple year
+    - how to get cc subscription for more then one year
+    - can I get cc registration for two years
+    - may I register as call center for more then one year
+    - I would like to register call center for dual year
+    - can you register call center for couple of years
+    - need to get call center subscription for three years
+    - I want to register call center for four years
+    - do you issue call center registration for less then one year
+    - multi year subscription of call center
+    - call center registration for multi year
+    - call center certificate for more then one year
+    - multi yaer subscription for call center
+- intent: visit_verification
+  examples: |
+    - What is the procedure to apply for verification visit?
+    - what are the steps to apply for verification of visit
+    - how to apply visit for verification
+    - I want to apply for visit verification
+    - kindly let me know visit verification process
+    - Information for visit verification
+    - need to know for verification of visit
+    - how can I verify visit
+    - would you mind if I ask for verification of visit
+    - would you like to tell me how to verify visit
+    - let me know process for verification of visit
+    - information about verification for visit
+    - how can I verfy vist
+    - tell me visit verification process
+    - I would like to apply for visit
+    - may I apply for visit verification
+    - how to apply for visit verfcation
+- intent: whitlisting_process
+  examples: |
+    - Whitelisting procedure?
+    - what is the whitelisting procedure
+    - what are the steps of whitelisting process
+    - I want to know about process for whitelisting
+    - what is the criteria of whitelist
+    - what is criteria of pseb for white list
+    - I want to know white listing procedure
+    - what is the process of whitelisting
+    - tell me about whitelisting
+    - how to become whitelist
+    - information for whitelisting
+    - info about white listing
+    - steps to follow for white listing
+    - tell me rules of white list
+    - whitelisting rules
+    - what are whitelisting rules
+    - whitlisting prcdure
+    - whitelsting proces
+    - how can I get my company at pseb whitelisting
+- intent: doc_for_reg_renewal
+  examples: |
+    - Required documents for new company registration?
+    - what documents are required for company registration
+    - which documents are needed for registration of company
+    - let me know documents require for copmany registration
+    - tell me which documents I have to submit for company registration
+    - can you tell me documents for company registration
+    - I would like to know documents for registration of company
+    - information about company registration documents
+    - In company registration which documents are required
+    - need to know for company registration what papers are needed
+    - required paper for registration of company
+    - required certificate for company registration
+    - need to know for company registration what certificate are needed
+    - Required documents for new call center registration?
+    - what documents are required for call center registration
+    - which documents are needed for registration of call center
+    - let me know documents require for cc registration
+    - tell me which documents I have to submit for call center registration
+    - can you tell me documents for call center registration
+    - I would like to know documents for registration of call center
+    - information about call center registration process
+    - In call center registration which documents are required
+    - need to know for call center registration what papers are needed
+    - required paper for registration of call center
+    - required certificate for call center registration
+    - need to know for call center registration what certificate are needed
+    - Required documents for renewal co?
+    - Required documents for company renewal
+    - what documents are required for company renewal
+    - which documents are needed for renewal of company
+    - let me know documents require for copmany renewal
+    - tell me which documents I have to submit for company renewal
+    - can you tell me documents for company renewal
+    - I would like to know documents for renewal of company
+    - information about company renewal documents
+    - In company renewal which documents are required
+    - need to know for company renewal what papers are needed
+    - required paper for renewal of company
+    - required certificate for company renewal
+    - need to know for company renewal what certificate are needed
+    - which documents are required for annual subcription of company
+    - would you mind telling necessary documents for resubscription of company
+    - Required documents for renewal cc?
+    - Required documents for cc renewal
+    - what documents are required for call center renewal
+    - which documents are needed for renewal of call center
+    - let me know documents require for call center renewal
+    - tell me which documents I have to submit for call center renewal
+    - can you tell me documents for call center renewal
+    - I would like to know documents for renewal of call center
+    - information about call center renewal documents
+    - In call center renewal which documents are required
+    - need to know for call center renewal what papers are needed
+    - required paper for renewal of call center
+    - required certificate for call center renewal
+    - need to know for call center renewal what certificate are needed
+    - which documents are required for annual subcription of call center
+    - would you mind telling necessary documents for resubscription of call center
+- intent: website_down
+  examples: |
+    - Site is down, what to do?
+    - your website is not working
+    - your website is down
+    - pseb web site is not opening
+    - I can't open website
+    - website is not working
+    - url is not working
+    - url is not loading
+    - Iink is not working
+    - website url is not corrrect
+    - url is wrong
+    - pseb server is down
+    - pseb website is not working properly
+    - link is incorrect
+    - wrong url
+    - wrong url address
+    - address is wrong
+    - I am facing url problem
+    - website is down
+    - web server is down
+- intent: ipv6_issue
+  examples: |
+    - IPV6 issue, what to do?
+    - ipv6 problem what can I do
+    - I am facing ipv6 issue
+    - how to solve ip6 problem
+    - how can I solve problem of ipv6
+    - information on ip v6 problem
+    - need to know on ip6 problem solution
+    - what can I do to solve ip6 error
+    - I am having an error because of ipv6
+    - how to resolve ipv6 problem
+    - ip version 6 problem is occuring how to handle
+    - how to handle ipv6 problem
+    - how to solve IP problem
+    - please tell me ip problem solution
+    - I want solution of ip problem
+    - ipv6 error I am facing
+    - problem with my ip v6
+    - ip problm
+    - ip verson isue
+- intent: cer_not_received
+  examples: |
+    - Payment submit but certificate not receive?
+    - I have submited the payment but still I did't receive certificate
+    - I have payed payment and still I did't get certification
+    - I have done payment and still not received certification
+    - I did not received certification and I have made payment
+    - I did't get certification I have paid for that
+    - let me know about certification I already have paid for that
+    - when certification will be ready I have made payment
+    - why my certifications are delayed
+    - certificate deliver issue
+    - certification is not delivered yet
+    - I have't received certification
+    - my certificates are delay
+    - not received certification
+    - certificaton are delayed
+    - information about delayed certification
+- intent: reg_rejected
+  examples: |
+    - Application rejected by PSEB and did not get any reason, what to do?
+    - why my application rejected
+    - let me know why my application got rejected
+    - my application got rejected tell me the reason
+    - I want to know the reason for rejected my application
+    - reason for rejection of my application
+    - can I ask why my application got declined
+    - why my application was not accepted
+    - reason for not accepting my application
+    - reason for declined my application
+    - information about rejected application
+    - reason for application rejected
+    - why my application got rejected
+    - reasone for application rejection
+    - why my application is not accepted
+    - information on rejected application
+    - why application was rejected
+    - pseb has declined my application no what’s the procedure to get register
+    - pseb has not informed me about reason behind my application rejection
+- intent: fee_structure
+  examples: |
+    - Fee structure by area?
+    - I want to know fee structure
+    - let me know the fee structure of pseb
+    - Information about fees structure of (pseb)
+    - tell me fees of pseb by area
+    - by area what is the fees structure
+    - information on fees structure of PSEB
+    - can you tell me fee table
+    - may I know fee plan of pseb
+    - let me know fees
+    - I want to know fees for registraion
+    - let me know registration fee
+    - kindly tell me fee structure by area
+    - by area tell me fees structure
+    - please tell me fee plan by area
+    - info about fees schedule
+    - fee schedule of pseb
+    - PSEB fee schedule
+    - P.S.E.B fee structure
+    - charges structure by pseb
+    - plan of fees by pseb
+    - fee schdule
+    - how much I have to pay for certification
+    - let me know cost of certification
+- intent: update_profile
+  examples: |
+    - How to update profile on portal?
+    - can I update profile
+    - let me know how to update profile on portal
+    - I want to update profile
+    - update information on profile
+    - update profile
+    - profile update
+    - updation of profile
+    - profile updation
+    - edit profile
+    - change profile information
+    - information change on profile
+    - I want to edit info on profile
+    - let me update info on profile
+    - I want to edit profile details
+    - wanna update details of profile
+    - need to update account
+    - I would like to do some change in account
+    - I want to updat profil
+    - wanna profil update
+    - I want chang profiel
+    - How to upload logo on profile?
+    - how to update picture on profile
+    - can I update profile picture
+    - tell me how to change logo
+    - update about logo
+    - how to change logo
+    - update logo
+    - logo update
+    - change logo
+    - edit logo
+    - I want to post new profile logo
+    - change profile logo
+    - logo change on profile
+    - I want to edit logo on profile
+    - let me update logo on profile
+    - I want to edit picture on profile
+    - change profile picture
+    - information about change logo picture
+    - I want to updat logo
+    - wanna pic update
+    - I want to chang pictur
+    - How to change contact info on portal?
+    - How to upload contact info on profile?
+    - how to update contact information on profile
+    - can I update profile contact information
+    - tell me how to change contact info
+    - update information about contact
+    - how to change contact
+    - contact logo
+    - contact update
+    - change contact
+    - edit contact
+    - I want to post new profile contact
+    - change profile contact info
+    - contact info change on profile
+    - I want to edit contact on profile
+    - let me update contact on profile
+    - I want to update contact details
+    - wanna edit details of contact
+    - need to update contact details
+    - I want to make some changes in contact info
+    - want to updat contat
+    - I want to contct update
+    - I want to chang contct info
+    - I want to change my profile credentials
+    - let me change my credential
+- intent: update_bank
+  examples: |
+    - Change of bank
+    - how to update bank
+    - how to update bank on profile
+    - can I update bank information
+    - tell me how to change bank info
+    - update information about bank
+    - how to change bank info
+    - update bank
+    - bank info update
+    - change bank
+    - edit bank
+    - I want to update info of bank
+    - change bank info
+    - bank info change on profile
+    - I want to edit bank information on profile
+    - let me update bank details on profile
+    - I want to change bank details
+    - wanna update details of bank
+    - need to update bank account details
+    - I want to make some changes for bank account
+    - wanna updat bak
+    - I want to do bakn update
+    - let me chang banc info
+- intent: foreign_services
+  examples: |
+    - Is there any PSEB Facilitation on getting foreign business?
+    - does pseb facilitate foreign business
+    - does pseb support foreign businesses
+    - do foreign business support by pseb
+    - do out of country businesses supported by pseb
+    - will you tell me out of country business facilitate by pseb also
+    - does pseb have foreign business facilitation in his services
+    - pseb services contain at foreign business services
+    - pseb facilitate foreign business or not
+    - either pseb facilitate out of country business or not
+    - does pseb provide services for foreign businesses
+    - let me know foreign company facilitate by pseb
+    - I want to know pseb facilitate foreign company
+    - pseb can facilitate a foreign firm or not
+    - foreign firm can be facilitated by pseb or not
+- intent: visiting_hours
+  examples: |
+    - Office timing for visitors
+    - what is the office time
+    - what is the visit time of pseb
+    - tell me time to visit office
+    - in what time duration pseb office can be visited
+    - information about visiting office
+    - office visiting time
+    - please tell me time in which office can be visit
+    - pseb working hours
+    - hours for visit pseb office
+    - pseb visiting hours
+    - let me know pseb visit hours
+    - time to visit pseb
+    - suitable time to visit pseb
+    - In what duration I can go at pseb
+    - information for visiting hours
+    - pseb hours for visitors
+    - pseb hours for guests
+    - guests timing at pseb
+    - what is visitors timing at pseb
+- intent: rform_prc
+  examples: |
+    - What is R-Form
+    - What is PRC
+    - where to get prc
+    - where to get r form
+    - r form stands for
+    - what is aberivation of r form
+    - what is meaning of r form
+    - what is meaning by prc
+    - where to find prc
+    - where to find r form
+    - how to get prc
+    - how to get r form
+- intent: tax_cer
+  examples: |
+    - How to get tax exemption certificate from FBR?
+    - how can I get tax exemption certificate from fbr
+    - fbr tax exemption certificate process
+    - I want to know how to get certification for tax exemption
+    - please tell me process for FBR tax exemption certificate
+    - would you mind telling procedure for tax exemption certificate
+    - I would like to know about certificate of tax exemption
+    - can I get tax exemption certificate
+    - how can I get certificate of tax exemption
+    - I want to download certificate of tax exemption
+    - where to find tax certificate for exemption
+    - where to find tax exemption certificate
+    - how to find certificate of tax exemption
+    - I want to get tax exemption certifcate
+    - let me know how to get tax certificate for exempton
+    - what would be the process for certification of tax exemption
+    - I want to get tax exmptoin certificate
+    - how to get tax exempoin certificat
+- intent: IT_tax
+  examples: |
+    - How much tax on IT exports?
+    - let me know about IT export tax
+    - what is the tax on IT export
+    - would you tell me about tax on export
+    - tax on IT export
+    - I want to know tax on IT export
+    - I would like to know IT export tax
+    - tax price on it export
+    - let me know how much is tax on IT export
+    - How much tax on it revenue?
+    - let me know about IT revenue tax
+    - what is the tax on IT profit
+    - would you tell me about tax on revenue
+    - tax on IT revenue
+    - I want to know tax on IT profit
+    - I would like to know IT income tax
+    - tax price on IT income
+    - let me know how much is tax on IT income
+    - tax on IT export revenue
+    - it export revenue tax
+    - revenu tax on IT
+- intent: recipient_submission
+  examples: |
+    - Where to email for payment submission prove
+    - where to send payment prove
+    - I want to send payment prove
+    - where to send receipt
+    - let me know email for receipt submission
+    - please tell me address for submission of receipt
+    - would you tell me address for receipt submission
+    - where to submit payment receipt
+    - let me know email address to send receipt of payment
+    - to send receipt let me know email
+    - for submission of receipt tell me email
+    - where to send payment receipt
+    - address to send receipt of payment
+    - payment receipt where to send
+    - receipt where to submit
+    - where to submit recept
+    - email address for recipt submision
+    - where to send payment profe
+    - how to get payment verify
+- intent: cer_delivery_id
+  examples: |
+    - Tracking id required of certificate delivered
+    - status id require of certificate delivered
+    - I want to know id for certificate delivered
+    - provide details of certificate delivered
+    - information about delivered certificate
+    - let me know id of certificate delivery
+    - would you like to tell me certificate tracking id
+    - would you mind telling me ID of delivered certification
+    - status ID of my certification delivery
+    - certification delivery id
+    - freelancer certification delivery id
+    - company certification delivery id
+    - software house certification delivered id
+    - delivery id of freelancer certification
+    - delivery id company certification
+    - delivery id of software house certification
+    - tell me Id of certificaton delivry
+    - let me know certifcation delvry id
+- intent: reg_without_revenue
+  examples: |
+    - If there is no domestic revenue than how to renew the registration
+    - If there is no export revenue than how to renew the registration
+    - kindly let me know if there is no revenue than how to get registration renew
+    - please tell if we have not earned revenue should we pay for annual renewal
+    - will you mind if I ask renew the registration without getting revenue
+    - without getting revenue can we get annual registration
+    - after not getting profit can we extend subscription
+    - if we are not getting profit can we extend registration
+    - I have note earned revenue tell me how to renew registration
+    - renew registration is possible with out getting profit
+    - renew subscription is valid after not getting revenue
+    - annual resubscription is valid without getting profit
+    - resubsciption is not valid without earning revenue
+    - I have't earned revenue how to renew registration
+    - I have't earned profit how to renew registration
+    - is resubscription not valid without getting revenue?
+- intent: apply_for_cc_exten
+  examples: |
+    - How to apply for call center provisional extension?
+    - how to submit application for call center extension
+    - I want to know about process of call center extension
+    - can you tell me way of extension for call center
+    - let me know process for provisional extension for call center
+    - please tell how can I extend call center for provisional
+    - may I know for extension of call center at provisional level
+    - how can I apply for provisional level call center
+    - I want resubscription for call center
+    - cc resubscription
+    - call center extension
+    - extension for call center
+    - extension of call center
+    - extnsion for provisional call centr
+    - provsional cal cnter extnsionn
+- intent: num_of_cc_exten
+  examples: |
+    - How many times a call Center can get an extension?
+    - let me know number for call center extension
+    - please tell me how many time call center can be extended
+    - can you tell me for how many time call center can extend
+    - number of extension for call center
+    - can I extend call center for second time
+    - can I get extension for call center more than one time
+    - can I apply for extension of call center third time
+    - how to apply for second time extension of call center
+    - how many times I can upgrade level of call center
+    - number for call center level upgradation
+    - how many time call center can get extension
+    - call center can get extension for how many time
+    - number for call center extension
+    - number of extension of call center
+    - extnsion for provisional call centr number
+    - provsional cal cnter extnsionn nmber
+- intent: fee_for_cc_exten
+  examples: |
+    - Is there any fees for extension?
+    - charges for call center extension
+    - fees for call cener extension
+    - let me know how much I have to pay for call center provisional extension
+    - what is the price for call center extension at provisional level
+    - can you tell me the price for call center extension
+    - fee I have to pay for call center extension
+    - for call cetner extension how much I have to pay
+    - call center upgradation how much fee will be charge
+    - fee will be charge for call center extension
+    - what is the fee for call center extension
+    - please tell me fee for extension of call center
+    - charges being charged for extension of call center
+    - cc resubscription charges
+    - call center extension fee
+    - extension for call center fees
+    - extension of call center charges
+    - extnsion for provisional call centr price
+    - provsional cal cnter extnsionn priec
+    - what would be the fee for call center extension
+- intent: should_start_operation
+  examples: |
+    - After getting the provisional letter, should the call center start the operation or wait for pseb certificate even they get the whitelisted IP
+    - after getting porvisional letter call center should start work or not
+    - after call center provisional letter what should do
+    - when I get provisional letter what should I do
+    - can I apply for ip whitelisting after getting pseb provisional letter
+    - what should do after getting ip
+    - after getting ip what should I do
+    - how to get permanent certificate for call center
+    - how can I get permanent certificate after getting ip
+    - please tell me process for permanent certificate for call center
+    - after provisional letter should call center start operation
+    - can operation start after getting call center provisional letter
+- intent: multi_reg_for_single
+  examples: |
+    - Is it possible to register multiple companies on single NTN?
+    - can I register more than one company on single ntn
+    - can I signup for mulitple company at one ntn
+    - on single ntn can I register more than one company
+    - more than one company can be register on single ntn or not
+    - one ntn for mulitple company
+    - multiple company agianst one ntn
+    - on one national tax number can I register two company
+    - on one national tax number can I register more than one company
+    - let me know multiple company can be register at one ntn or not
+    - can we use one ntn for mulitple registration
+    - can we use one ntn agianst two registration
+    - one ntn can be used for multiple account
+    - mulitple account can be register with one ntn
+    - one national tax numbr against more acount
+    - one nnt against more acount
+    - one natonal tex nmber for multipl registation
+    - tell me if I can use single ntn for mulitple companies
+    - tell me if single ntn is sufficient for multiple companies
+    - Is it possible to register multiple companies on single e-mail?
+    - can I register more than one company on single email
+    - can I signup for mulitple company at one email
+    - on single email can I register more than one company
+    - more than one company can be register on single email or not
+    - one email for mulitple company
+    - multiple company agianst one email address
+    - on one email address can I register two company
+    - let me know multiple company can be register at one email or not
+    - can we use one email for mulitple registration
+    - can we use one email agianst two registration
+    - one email can be used for multiple account
+    - mulitple account can be register with one email
+    - one email against more account
+    - one emial against more acount
+    - one emial for multipl registation
+    - tell me if I can use single email for mulitple companies
+    - tell me if single email is sufficient for multiple companies
+- intent: need_secp_firm_reg
+  examples: |
+    - Is it necessary to get SECP registration or Firm registration to get PSEB registration ?
+    - is it mandatory to get secp registration to get pseb registration
+    - is it mandatory to get firm registration to get pseb registration
+    - do I have to secp registration for pseb registration
+    - do I have to firm registration for pseb registration
+    - do I have to register somewhere else for registration at pseb
+    - let me know either I have to scep account for pseb registration
+    - please tell me first I have to register at secp for pseb registration
+    - kindly tell me firstly I have to get firm registration for pseb registration
+    - do I require firm registration for pseb registration
+    - do I require scep registration for pseb registration
+    - scep registration is needed for pseb registration
+    - firm registration is needed for pseb registration
+    - firm registration is mandatory for pseb registration
+    - scep and pseb registration are inter linked
+    - firm and pseb registration are linked
+    - pseb registration can not be completed without scep registration
+    - pseb registration can not be completed without firm registration
+    - for pseb registration do I need secp registration
+    - for pseb registration do I require firm registration
+    - tell me scep registration is needed for pseb registration
+    - tell me firm registration is needed for pseb registration
+
+
+
+- intent: account_status
+  examples: |
+    - need to know account status
+    - wanna check account status
+    - I want to check account status
+    - what is the status of account
+    - let me know the status of account
+    - please tell me account status
+    - tell me status of my account
+    - would you like to tell me status of account
+    - I want to know account status
+    - can I get to know status of account
+    - may I know account status
+    - let me know the account status
+    - I would like to know account status
+    - can I ask status of profile
+    - let me know the status of my account
+    - kindly let me know the account status
+    - I want to check profile status
+    - could you provide status of profile
+    - please let me know the status of profile
+    - please tell me profile status
+    - tell me status of my profile
+    - let me know the profile status
+    - information about profile status
+    - please provide status of my account
+    - please provide status of account
+    - stats of accont
+    - acount stats
+    - tell me status of my profil
+    - let me know profil status
+- intent: forget_ac_reg_id
+  examples: |
+    - I forget account number
+    - I forget registration
+    - I forgot registration
+    - I forgot account number
+    - I need to recover account number
+    - I need to recover registration number
+    - I have to reset account number
+    - I have to reset registration number
+    - i forgot my account number
+    - I forgot my reg number
+    - i want to change account number
+    - I want to change registration number
+    - can you help me figure out my registration number
+    - can you help me figure out my account number
+    - i need to update the registration number
+    - I need to update the account number
+    - i'd like to change the registration number
+    - i'd like to change the account number
+    - I don't remember account id
+    - I don't remember registraion id
+- intent: not_assign_ac_reg_id
+  examples: |
+    - I don't have any idea about registration number
+    - I don't have any idea about account number
+    - I don't know registration number
+    - I don't know account number
+    - what are you asking about
+    - I don't understand
+    - registration ID is  not assign to me
+    - account number is not assign to me
+    - registration number is not given to me
+    - account id is not given to me
+    - what registration number you are asking about
+    - what account number you are asking about
+    - tell me the registration number
+    - i need to know account number
+    - would you like to tell me my registration number
+    - I would like to know account number
+    - can you tell me registration id
+    - let me know my account ID
+    - I don't have registraion id
+    - I do not have account id
+- intent: reg_status
+  examples: |
+    - How to check registration status of submitted application for freelancer?
+    - How to check registration status of submitted application for call center
+    - How to check registration status of submitted application for company
+    - what is the status of submitted application
+    - I want to know application status
+    - let me know the status of my application
+    - kindly let me know the reg status
+    - I have submitted application tell me status
+    - tell me status of my applicaion
+    - I have submitted registration application let me know status
+    - status of my application
+    - application of registration status
+    - freelancer application status
+    - company application status
+    - software house application status
+    - status of freelancer application
+    - status of company application
+    - status of software house application
+    - could you provide me status of aplication
+    - can I get to know status of registration
+    - may I know registration status
+    - would you like to tell me status of registration
+    - I would like to know registration status
+    - can I ask status of registration
+    - I want to know registration status
+    - let me know the status of my registration
+    - please let me know the registration status
+    - registration status of my application
+    - freelancer registration status
+    - company registration status
+    - software house registration status
+    - status of freelancer registration
+    - status of company reg
+    - status of software house registration
+    - stats of regist
+    - reg stats
+    - aplication stats
+    - tell me my registeration status
+    - what's my registeration status
+- regex: email
+  examples: |
+    - /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gm

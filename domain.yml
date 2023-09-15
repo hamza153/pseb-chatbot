@@ -1,0 +1,375 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- person_name
+- phone_number
+- email
+- not_registered_user
+- trigger
+- registered_user
+- generate_ticket
+- not_generate_ticket
+- email_to_support
+- not_support_email
+- why_you_need_this
+- live_agent
+- reg_key
+- require_assistance
+- type_of_question_delt
+- laugh
+- appricate
+- affirm
+- deny
+- acknowledge
+- end_chat
+- pseb_function
+- registration
+- cc_renewal
+- compulsory_to_register
+- reg_reward
+- process_of_renewal
+- cc_branch_reg
+- request_tab
+- certificate_correction
+- sbp
+- ownership_change
+- ntn_change
+- payment_return
+- payment_option
+- time_after_payment
+- po_dd_accept
+- cash_deposit
+- psw_change
+- add_IP
+- cancel_reg
+- dual_year_reg
+- visit_verification
+- whitlisting_process
+- doc_for_reg_renewal
+- website_down
+- ipv6_issue
+- cer_not_received
+- reg_rejected
+- fee_structure
+- update_profile
+- update_bank
+- foreign_services
+- visiting_hours
+- rform_prc
+- tax_cer
+- IT_tax
+- recipient_submission
+- cer_delivery_id
+- reg_without_revenue
+- apply_for_cc_exten
+- num_of_cc_exten
+- fee_for_cc_exten
+- should_start_operation
+- multi_reg_for_single
+- need_secp_firm_reg
+- account_status
+- forget_ac_reg_id
+- not_assign_ac_reg_id
+- reg_status
+entities:
+- person_name
+- phone_number
+- email
+- user_id
+- user_type
+slots:
+  person_name:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: person_name
+  email:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: email
+  phone_number:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  company_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  user_id:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_id
+  user_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+  registered_status:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+    - type: custom
+  guest_status:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+    - type: custom
+  affiliation_status:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+    - type: custom
+  r_status:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+    - type: custom
+responses:
+  utter_ask_person_name:
+  - text: To begin with, may I know your name please?
+  utter_ask_phone_number:
+  - text: Thanks. May I also ask for your phone number please?
+  utter_ask_email:
+  - text: Great. Lastly what's your email address please?
+  utter_ask_continue:
+  - text: Would you like to continue providing the required information?
+  utter_slots_values:
+  - text: |-
+      You've submitted the following details:
+        Name: {person_name}\n
+        Email: {email}\n
+        Phone Number: {phone_number}
+  utter_greet:
+  - condition:
+    - type: slot
+      name: r_status
+      value: true
+    text: Hello! {company_name}. What would you like to know?
+  - condition:
+    - type: slot
+      name: r_status
+      value: false
+    text: Hello! How can I help you?
+  utter_require_assistance:
+  - text: I'm here for your assistance, what would you like to know?
+  - text: What can I do to assist you?
+  utter_type_of_question_delt:
+  - text: You are welcome to contact me with any questions concerning PSEB.
+  - text: You are free to ask me any query about PSEB.
+  utter_laugh:
+  - text: Laughing with you seems funny.
+  - text: That's funny.
+  utter_appricate:
+  - text: Happy to help you!. Anything else you want to know?
+  - text: My pleasure. Anything else you want to know?
+  utter_affirm:
+  - text: What else you want to know?
+  - text: Is there any PSEB-related information or query you would like to know?
+  utter_deny:
+  - text: Is there any PSEB-related information or query you would like to know?
+  utter_acknowledge:
+  - text: Is there any PSEB-related information or query you would like to know?
+  utter_end_chat:
+  - text: This was a nice chat.Have a nice day ahead
+  - text: This was fun talking to you. Bye.
+
+
+  #********************************************************
+  # ---------- Company Questions Driven Responses -------------
+
+  utter_pseb_function:
+    - text: PSEB major function is to register IT companies, call centers and freelancers in Pakistan and provide regulatory and corporate incentives and facilitation to them.
+
+  utter_registration:
+    - text: Registration guidelines are at this link https://pseb.org.pk/app. You can follow the explained steps to get registered.
+  utter_cc_renewal:
+    - text: PSEB charges Rs.20, 000 for call center annual renewal and Rs. 10,000/- for renewal of each branch.
+  utter_compulsory_to_register:
+    - text: For voice operation business, call center registration is necessary to operate legally in the country, where as company and freelancer registration is not mandatory.
+  utter_reg_reward:
+    - text: Certified/registered companies & freelancers can get incentives and facilitation furthermore call centers are also legalized.
+  utter_process_of_renewal:
+    - text: Visit PSEB registration portal, login to your application and update the form according the latest information and upload all required documents as requested by the system and submit your renewal application for PSEB review.
+  utter_cc_branch_reg:
+    - text: PSEB register a branch for valid call centers, in this regards a request on official letterhead along with the copy of main office registration and a post order of Rs.10,000/- in favor of PSEB.
+  utter_request_tab:
+    - text: Send an official request for Tab at registraiton@pseb.org.pk with your complete contact details and designation.
+  utter_certificate_correction:
+    - text: Original certificate has to return along with the correction on letterhead should be sent to PSEB office.
+  utter_sbp:
+    - text: SBP defined 06 different codes to use for receiving foreign remittance against IT/ITeS (9102, 9181 - 6).
+  utter_ownership_change:
+    - text: The applicant has to send their request at registration@pseb.org.pk with all supporting documents as attachments.
+  utter_ntn_change:
+    - text: A request on official letter along with the copy of NTN is required to update PSEB record.
+  utter_payment_return:
+    - text: A formal request on letterhead or by email with details is required to proceed.
+  utter_payment_option:
+    - text: PSEB charges can be made through online banking system or PO/DD (in favor of PSEB) to deposit/sent to PSEB office.
+  utter_time_after_payment:
+    - text: Usually it takes 3-5 working days max.
+  utter_po_dd_accept:
+    - text: Yes, but encourage to use online banking system.
+  utter_cash_deposit:
+    - text: Yes, but not recommended.
+  utter_psw_change:
+    - text: Please re-set your password and try again, it will work.
+  utter_add_IP:
+    - text: You have to send an email at registration@pseb.org.pk for IP updation.
+  utter_cancel_reg:
+    - text: Formal request, by email or letterhead is required from business owner to close the registration.
+  utter_dual_year_reg:
+    - text: PSEB did not issue a company registration certificate for more than one year but At the time of renewal, any call center can apply for multiple years of registration from 1-5 years.
+  utter_visit_verification:
+    - text: Visit tab is available on the portal when you login to the portal and you have to fill the visit form and submit.
+  utter_whitlisting_process:
+    - text: Please check your call center provisional letter (issued by PSEB) for instruction.
+  utter_doc_for_reg_renewal:
+    - text: Please visit the link pseb.org.pk to get the details about required documents.
+  utter_website_down:
+    - text: Check your internet connection, if the problem is still there then email us at registration@pseb.org.pk.
+  utter_ipv6_issue:
+    - text: Update your system by disable IPV6 then try to login to the PSEB registration portal, it will work.
+  utter_cer_not_received:
+    - text: Please share the details about payment submission and your contact details with the company name to check and contact you back.
+  utter_reg_rejected:
+    - text: Sent a query email to registration@pseb.org.pk along with your concern and contact details and we will get back to you.
+  utter_fee_structure:
+    - text: Please visit the link pseb.org.pk to get the details about fee structure.
+  utter_update_profile:
+    - text: Login to your registration portal and update your profile on it.
+  utter_update_bank:
+    - text: Send us updating request by email with the scan copy of the new bank account letter.
+  utter_foreign_services:
+    - text: Currently PSEB is working on it.
+  utter_visiting_hours:
+    - text: All relevant information is available on the PSEB site, if anyone needs further information he can visit us between 9:30 to 4:30 from Monday to Friday.
+  utter_rform_prc:
+    - text: R-Form stands Remittance Form and PRC stands for Proceed Realization Certificate, both documents can get from Bank and it should be on SBP defined IT/IT's code.
+  utter_tax_cer:
+    - text: You can apply from your iris account to get the tax exemption certificate from FBR.
+  utter_IT_tax:
+    - text: 1 % tax on IT Export Revenue.
+  utter_recipient_submission:
+    - text: You have to send Payment submission proof at reg.payment@pseb.org.pk with company details.
+  utter_cer_delivery_id:
+    - text: Sent an email request to registration@pseb.org.pk with your company details to check and reply you back.
+  utter_reg_without_revenue:
+    - text: You can provide justification on legal paper for not having revenue and commit to provide it later.
+  utter_apply_for_cc_exten:
+    - text: You can send a request for call center provisional extension by online before the end of the current provisional letter.
+  utter_num_of_cc_exten:
+    - text: The call center can get the extension for one time only.
+  utter_fee_for_cc_exten:
+    - text: Currently PSEB did not charge any fee against the call center provisional extension.
+  utter_should_start_operation:
+    - text: After getting the PSEB provisional letter, the call center has to apply for IP whitelisting and start the operations, after that call center have to apply for a verification visit to get the permanent certificate.
+  utter_multi_reg_for_single:
+    - text: Yes, PSEB has no issue with it.
+  utter_need_secp_firm_reg:
+    - text: No, it's not necessary.
+  utter_default:
+    - text: This is the default text in utter_default.
+
+  #********************************************************
+  # ---------- Story and API Driven Responses -------------
+  utter_forget_ac_reg_id:
+    - text: The applicant has to send their request at registration@pseb.org.pk with all supporting documents as attachments.
+
+  utter_initial_information:
+    - text: To assist you, we need some information from you.
+
+  utter_ask_name:
+    - text: May I know your name please?
+
+  utter_ask_user_id:
+    - text: Would you be able to provide me your registration ID?
+
+  utter_details_thanks:
+    - text: "Thank you for providing the given details \nName: {name}, \nEmail: {email},\nMobile Number: {phone_number}, \nUser ID: {json_data}"
+  #---------ask to account type--
+  utter_ask_account_type:
+    - text: To enhance your assistance experience we need to know if you're a registered user?
+
+  utter_registered_user:
+    - text: What information related to PSEB would you like to know?
+    - text: Is there any PSEB-related information or query you would like to know?
+
+  utter_unregistered_user:
+    - text: Unfortunately, we couldn't verify your registration information at this time. Please continue asking any questions you may have and we'll try to answer you as best as we can.
+
+  utter_treat_as_guest_not_registered_user:
+    - text: To enhance your assistance experience, we need your information.
+
+  utter_why_you_need_this:
+    - text: We need this information to better serve your queries.
+
+  utter_treat_as_guest_not_assign_ac_reg_id:
+    - text: To enhance your assistance experience, we need your information.
+  #---------ask to generate ticket
+  utter_live_agent:
+    - text: For that, I would have to generate a ticket for you. May I go ahead and generate a ticket for you?
+
+  utter_ask_generate_ticket:
+    - text: Sorry, I did not understand what you meant. For our current conversation, may I go ahead and generate a ticket for you?
+  utter_not_generate_ticket:
+    - text: Is there anything else you would like to know?
+
+  utter_not_support_email:
+    - text: Is there anything else you would like to know?
+
+  utter_ask_support_email:
+    - text: Sorry, I did not understand what you meant. For our current conversation, would you like to send an email to our support team?
+
+  utter_reg_acc_unregistered_users:
+    - text: I would not be able to help you in this regard because this facility is only for registered users.
+
+  utter_out_of_scope:
+    - text: Sorry, I have not understood what your'e trying to say. Please! come up again by rephrasing.
+    - text: Apologies from my side, I did not get what you’re trying to say. Can you please rephrase?
+
+
+  utter_out_of_scope1:
+    - text: Debug Story 1
+  utter_out_of_scope2:
+    - text: Debug Story 2
+  utter_out_of_scope3:
+    - text: Debug Story 3
+  utter_out_of_scope4:
+    - text: Debug Story 4
+
+actions:
+- action_conversation_storing
+- action_escalate_no_support_email
+- action_escalate_no_ticket
+- action_generate_ticket
+- action_get_account_status
+- action_get_registration_status
+- action_register_guest_user
+- action_support_email
+- action_verify_registered_user
+- utter_ask_account_type
+- utter_slots_values
+forms:
+  user_details_form:
+    ignored_intents:
+    - chitchat
+    required_slots:
+    - person_name
+    - phone_number
+    - email

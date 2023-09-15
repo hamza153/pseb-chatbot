@@ -1,0 +1,586 @@
+version: "3.0"
+
+stories:
+
+
+#*************************************************************
+#-------------FALLBACK asking to generate ticket--------------
+
+- story: out-of-scope generating TICKET
+  steps:
+  - intent: nlu_fallback
+  - slot_was_set:
+    - r_status: true
+  - action: utter_out_of_scope
+  - action: utter_out_of_scope1
+  - intent: nlu_fallback
+  - action: utter_ask_generate_ticket
+  - or:
+    - intent: affirm
+    - intent: generate_ticket
+  - action: utter_out_of_scope1
+  - action: action_conversation_storing
+  - action: action_generate_ticket
+
+- story: out-of-scope not generating TICKET
+  steps:
+  - intent: nlu_fallback
+  - slot_was_set:
+    - r_status: true
+  - action: utter_out_of_scope
+  - action: utter_out_of_scope2
+  - intent: nlu_fallback
+  - action: utter_ask_generate_ticket
+  - or:
+    - intent: deny
+    - intent: not_generate_ticket
+  - action: utter_out_of_scope2
+  - action: action_conversation_storing
+  - action: action_escalate_no_ticket
+
+#*************************************************************
+#-------------FALLBACK asking to email Support--------------
+
+- story: out-of-scope support EMAIL
+  steps:
+  - intent: nlu_fallback
+  - slot_was_set:
+    - guest_status: true
+  - action: utter_out_of_scope
+  - intent: nlu_fallback
+  - action: utter_ask_support_email
+  - or:
+    - intent: affirm
+    - intent: email_to_support
+  - action: action_conversation_storing
+  - action: action_support_email
+
+- story: out-of-scope not sending support EMAIL
+  steps:
+  - intent: nlu_fallback
+  - slot_was_set:
+    - guest_status: true
+  - action: utter_out_of_scope
+  - intent: nlu_fallback
+  - action: utter_ask_support_email
+  - or:
+    - intent: deny
+    - intent: not_generate_ticket
+  - action: action_conversation_storing
+  - action: action_escalate_no_support_email
+
+
+- story: out-of-scope Unknown User
+  steps:
+  - intent: nlu_fallback
+  - slot_was_set:
+    - affiliation_status: false
+  - action: utter_out_of_scope
+  - action: utter_out_of_scope3
+  - intent: nlu_fallback
+  - action: utter_out_of_scope
+
+#*************************************************************
+#-------------REGISTERED asking if registered ----------------
+
+- story: if registered or guest user, greets again
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - affiliation_status: true
+  - action: utter_greet
+
+
+- story: if registered user, yes and verification successful
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - affiliation_status: false
+  - action: utter_ask_account_type
+  - intent: registered_user
+  - action: utter_ask_user_id
+  - intent: reg_key
+  - slot_was_set:
+    - user_id: FR/PSEB/2021/1
+  - action: action_verify_registered_user
+  - slot_was_set:
+    - user_type: registered
+  - slot_was_set:
+    - registered_status: true
+  - slot_was_set:
+    - affiliation_status: true
+  - slot_was_set:
+    - r_status: true
+  - action: utter_registered_user
+
+
+- story: if registered user, forgot
+  steps:
+    - intent: greet
+    - slot_was_set:
+        - affiliation_status: false
+    - action: utter_ask_account_type
+    - intent: registered_user
+    - action: utter_ask_user_id
+    - or:
+        - intent: forget_ac_reg_id
+        - intent: not_assign_ac_reg_id
+    - checkpoint: checkpoint_register_active_form
+
+- story: if registered user and verification fail
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - affiliation_status: false
+  - action: utter_ask_account_type
+  - intent: registered_user
+  - action: utter_ask_user_id
+  - intent: reg_key
+  - slot_was_set:
+    - user_id
+  - action: action_verify_registered_user
+  - slot_was_set:
+    - user_type: guest
+  - slot_was_set:
+    - user_id: null
+#  - checkpoint: checkpoint_register_active_form
+  - action: utter_unregistered_user
+
+#- story: if registered user, no
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - slot_was_set:
+#    - affiliation_status: false
+#  - action: utter_ask_account_type
+#  - intent: not_registered_user
+#  - action: user_details_form
+#  - active_loop: user_details_form
+#  - checkpoint: checkpoint_register_active_form
+
+- story: unregistered user - get details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - slot_was_set:
+    - affiliation_status: false
+  - action: utter_ask_account_type
+  - intent: not_registered_user
+  - checkpoint: checkpoint_register_active_form
+
+
+
+- story: Run Form
+  steps:
+  - checkpoint: checkpoint_register_active_form
+  - action: user_details_form
+  - active_loop: user_details_form
+    #  - action: utter_ask_person_name
+  - intent: person_name
+    entities:
+      - person_name
+  - slot_was_set:
+      - person_name
+    #  - action: utter_ask_phone_number
+  - intent: phone_number
+    entities:
+      - phone_number
+  - slot_was_set:
+      - phone_number
+    #  - action: utter_ask_email
+  - intent: email
+    entities:
+      - email
+  - slot_was_set:
+      - email
+  - action: utter_slots_values
+
+#*************************************************************
+#-------------ACTIVATING FORM  ----------------
+#
+#- story: Activate form
+#  steps:
+#  - checkpoint: checkpoint_register_active_form
+#  - action: user_details_form
+#  - active_loop: user_details_form
+#  - intent: person_name
+#    entities:
+#    - person_name
+#  - slot_was_set:
+#    - person_name
+#  - intent: phone_number
+#    entities:
+#    - phone_number
+#  - slot_was_set:
+#    - phone_number
+#  - intent: email
+#    entities:
+#    - email
+#  - slot_was_set:
+#    - email
+#  - active_loop: null
+#  - action: utter_slots_values
+
+# old
+  #  - action: user_details_form
+  #  - active_loop: user_details_form
+  #  - intent: person_name
+  #    entities:
+  #    - person_name
+  #  - slot_was_set:
+  #    - person_name
+  #  - intent: phone_number
+  #    entities:
+  #    - phone_number
+  #  - slot_was_set:
+  #    - phone_number
+  #  - intent: email
+  #    entities:
+  #    - email
+  #  - slot_was_set:
+  #    - email
+  #  - active_loop: null
+  #  - action: utter_slots_values
+
+  #********************************************************
+# ---------- Story and API Driven  -------------
+
+- story: for registration status
+  steps:
+  - intent: reg_status
+  - slot_was_set:
+    - registered_status: true
+  - action: action_get_registration_status
+
+- story: for registration status NOT registered user
+  steps:
+  - intent: reg_status
+  - slot_was_set:
+    - registered_status: false
+  - action: utter_reg_acc_unregistered_users
+
+- story: for user account status
+  steps:
+  - intent: account_status
+  - slot_was_set:
+    - registered_status: true
+  - action: action_get_account_status
+
+- story: for user account status NOT registered user
+  steps:
+  - intent: account_status
+  - slot_was_set:
+    - registered_status: false
+  - action: utter_reg_acc_unregistered_users
+
+
+##********************************************************
+## ---------- FAQ story -------------
+
+#
+#- story: about major function of pseb
+#  steps:
+#  - intent: pseb_function
+#  - action: utter_pseb_function
+
+
+- story: registration at pseb as FRC, CC, CO
+  steps:
+  - intent: registration
+  - action: utter_registration
+
+
+- story: about call center renwal charges
+  steps:
+  - intent: cc_renewal
+  - action: utter_cc_renewal
+
+
+- story: inform is it necessary to register with pseb
+  steps:
+  - intent: compulsory_to_register
+  - action: utter_compulsory_to_register
+
+
+- story: related benefit after registration with pseb
+  steps:
+  - intent: reg_reward
+  - action: utter_reg_reward
+
+
+- story: about process of renewal for FRC, CC, CO
+  steps:
+  - intent: process_of_renewal
+  - action: utter_process_of_renewal
+
+
+- story: how to register CC branch
+  steps:
+  - intent: cc_branch_reg
+  - action: utter_cc_branch_reg
+
+
+- story: about send request for visit/renewal
+  steps:
+  - intent: request_tab
+  - action: utter_request_tab
+
+
+- story: about correction in certificate
+  steps:
+  - intent: certificate_correction
+  - action: utter_certificate_correction
+
+
+- story: deals with SBP code
+  steps:
+  - intent: sbp
+  - action: utter_sbp
+
+
+- story: about procedure to change ownership
+  steps:
+  - intent: ownership_change
+  - action: utter_ownership_change
+
+
+- story: about request for change of NTN
+  steps:
+  - intent: ntn_change
+  - action: utter_ntn_change
+
+
+- story: inform about payment return process
+  steps:
+  - intent: payment_return
+  - action: utter_payment_return
+
+
+- story: tells payment method at pseb
+  steps:
+  - intent: payment_option
+  - action: utter_payment_option
+
+
+- story: inform time require after payment
+  steps:
+  - intent: time_after_payment
+  - action: utter_time_after_payment
+
+
+- story: about post order or demand draft
+  steps:
+  - intent: po_dd_accept
+  - action: utter_po_dd_accept
+
+
+- story: about cash deposit method
+  steps:
+  - intent: cash_deposit
+  - action: utter_cash_deposit
+
+
+- story: about forget password
+  steps:
+  - intent: psw_change
+  - action: utter_psw_change
+
+
+- story: to add new ip
+  steps:
+  - intent: add_IP
+  - action: utter_add_IP
+
+
+- story: for cancel registration
+  steps:
+  - intent: cancel_reg
+  - action: utter_cancel_reg
+
+
+- story: about multi year subscription
+  steps:
+  - intent: dual_year_reg
+  - action: utter_dual_year_reg
+
+
+- story: delas with verification of visit tab
+  steps:
+  - intent: visit_verification
+  - action: utter_visit_verification
+
+
+- story: about whitelising process at pseb.
+  steps:
+  - intent: whitlisting_process
+  - action: utter_whitlisting_process
+
+
+- story: about require documents
+  steps:
+  - intent: doc_for_reg_renewal
+  - action: utter_doc_for_reg_renewal
+
+
+- story: delas with website down scnerio
+  steps:
+  - intent: website_down
+  - action: utter_website_down
+
+
+- story: deals with ipv6 issue
+  steps:
+  - intent: ipv6_issue
+  - action: utter_ipv6_issue
+
+
+- story: about certification not received
+  steps:
+  - intent: cer_not_received
+  - action: utter_cer_not_received
+
+
+- story: reason for application rejection
+  steps:
+  - intent: reg_rejected
+  - action: utter_reg_rejected
+
+
+- story: tells about the fee structure
+  steps:
+  - intent: fee_structure
+  - action: utter_fee_structure
+
+
+- story: about update profile, contact, logo
+  steps:
+  - intent: update_profile
+  - action: utter_update_profile
+
+
+- story: related to update bank details
+  steps:
+  - intent: update_bank
+  - action: utter_update_bank
+
+
+- story: about foreign services
+  steps:
+  - intent: foreign_services
+  - action: utter_foreign_services
+
+
+- story: for visiting hours at pseb
+  steps:
+  - intent: visiting_hours
+  - action: utter_visiting_hours
+
+
+- story: tells what is rform or prc
+  steps:
+  - intent: rform_prc
+  - action: utter_rform_prc
+
+
+- story: for tax exemption from fbr
+  steps:
+  - intent: tax_cer
+  - action: utter_tax_cer
+
+
+- story: about tax on IT export.
+  steps:
+  - intent: IT_tax
+  - action: utter_IT_tax
+
+- story: for payment recipient submission
+  steps:
+  - intent: recipient_submission
+  - action: utter_recipient_submission
+
+
+- story: for certification delivery id
+  steps:
+  - intent: cer_delivery_id
+  - action: utter_cer_delivery_id
+
+
+- story: about resubscription without revenue
+  steps:
+  - intent: reg_without_revenue
+  - action: utter_reg_without_revenue
+
+
+- story: process for call center provisional extension
+  steps:
+  - intent: apply_for_cc_exten
+  - action: utter_apply_for_cc_exten
+
+
+- story: about number of extensions for call center
+  steps:
+  - intent: num_of_cc_exten
+  - action: utter_num_of_cc_exten
+
+
+- story: tells fee for call center extension
+  steps:
+  - intent: fee_for_cc_exten
+  - action: utter_fee_for_cc_exten
+
+
+- story: tells when to start operation after certification
+  steps:
+  - intent: should_start_operation
+  - action: utter_should_start_operation
+
+
+- story: about single email/ntn for multiple account
+  steps:
+  - intent: multi_reg_for_single
+  - action: utter_multi_reg_for_single
+
+
+- story: for registration scep/firm account require?
+  steps:
+  - intent: need_secp_firm_reg
+  - action: utter_need_secp_firm_reg
+
+- story: provide assistance when user ask for assistance
+  steps:
+    - intent: require_assistance
+    - action: utter_require_assistance
+
+  #- rule: tell bot name when user ask who are you or what is your name
+  #  steps:
+  #  - intent: bot_name
+  #  - action: utter_bot_name
+
+- story: tell I am able to answer PSEB related query
+  steps:
+    - intent: type_of_question_delt
+    - action: utter_type_of_question_delt
+
+
+- story: laugh when user laugh or say it's funny
+  steps:
+    - intent: laugh
+    - action: utter_laugh
+
+
+- story: say joy to serve you when user thanks to bot for helping him.
+  steps:
+    - intent: appricate
+    - action: utter_appricate
+
+
+- story: says I am glad you liked when user says true, correct etc.
+  steps:
+    - intent: acknowledge
+    - action: utter_acknowledge
+
+
+- story: say goodbye when user say goodbye any time
+  steps:
+    - intent: end_chat
+    - action: utter_end_chat
