@@ -1,2 +1,1 @@
-
-web: uvicorn src.server:app --host 0.0.0.0 --port $PORT
+web: python -m rasa_sdk --port $PORT --connector rest
